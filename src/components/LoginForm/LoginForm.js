@@ -35,8 +35,9 @@ export default class LoginForm extends Component {
       .then( res => {
         user_name.value = '';
         password.value = '';
+        console.log(res.authToken);
         TokenService.saveAuthToken(res.authToken);
-        this.props.onLoginSuccess()
+        this.props.onLoginSuccess();
       })
       .catch( res => this.setState({ error: res.error }));
   }
